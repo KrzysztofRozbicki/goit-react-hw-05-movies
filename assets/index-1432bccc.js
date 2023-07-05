@@ -1,1 +1,0 @@
-import{r as t,j as s,L as c,f as a,c as o}from"./index-f51cd0c4.js";const f=()=>{const[n,i]=t.useState([]),r=async()=>{const e=await a(o());i(e)};return t.useEffect(()=>{r()},[]),s.jsx("ul",{children:n.map(e=>s.jsx("li",{children:s.jsxs(c,{to:`/movies/${e.id}`,children:[" ",e.title]})},e.id))})};export{f as TrendingMovies};
