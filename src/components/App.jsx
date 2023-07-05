@@ -1,11 +1,19 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import { TrendingMovies } from './TrendingMovies';
-import { MovieDetails } from './MovieDetails';
-import { Cast } from './Cast';
-import { Reviews } from './Reviews';
+import { lazy } from 'react';
 import { TopMenu } from './TopMenu';
-import { MovieSearch } from './MovieSearch';
+import './App.css';
+
+const TrendingMovies = lazy(() => import('./TrendingMovies'));
+const MovieDetails = lazy(() => import('./MovieDetails'));
+const Cast = lazy(() => import('./Cast'));
+const Reviews = lazy(() => import('./Reviews'));
+const MovieSearch = lazy(() => import('./MovieSearch'));
+
+// import { TrendingMovies } from './TrendingMovies';
+// import { MovieDetails } from './MovieDetails';
+// import { Cast } from './Cast';
+// import { Reviews } from './Reviews';
+// import { MovieSearch } from './MovieSearch';
 
 const App = () => {
   return (

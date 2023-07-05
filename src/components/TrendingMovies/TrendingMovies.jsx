@@ -2,7 +2,7 @@ import { fetchMovies, createTrendingURL } from '../../services/fetchMovies';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export const TrendingMovies = () => {
+const TrendingMovies = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const fetchData = async () => {
     const fetchedMovies = await fetchMovies(createTrendingURL());
@@ -25,3 +25,5 @@ export const TrendingMovies = () => {
     </ul>
   );
 };
+
+export default TrendingMovies;
