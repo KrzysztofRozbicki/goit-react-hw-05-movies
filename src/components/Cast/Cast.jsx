@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { CastMember } from '../CastMember/CastMember';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
   const fetchCast = async () => {
@@ -25,3 +25,5 @@ export const Cast = () => {
     </ul>
   );
 };
+
+export default Cast;

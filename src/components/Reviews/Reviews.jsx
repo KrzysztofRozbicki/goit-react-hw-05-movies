@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ReviewSingle } from '../ReviewSingle';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const fetchReviews = async () => {
@@ -29,3 +29,5 @@ export const Reviews = () => {
     </ul>
   );
 };
+
+export default Reviews;

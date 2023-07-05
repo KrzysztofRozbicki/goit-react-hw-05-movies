@@ -1,11 +1,10 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { fetchSingleMovie } from '../../services/fetchMovies';
 import { useState, useEffect } from 'react';
 import { IMG_URL } from '../../services/constants';
 import { convertGenres } from '../../services/convertGenres';
-import { Link, Outlet } from 'react-router-dom';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const fetchMovie = async () => {
@@ -13,23 +12,21 @@ export const MovieDetails = () => {
     setMovie(fetchedMovies);
   };
 
-  const navigate = useNavigate();
-
-  const goBack = () => {
-    navigate(-1);
-  };
+  const location = useLocation();
+  const backLinkHref = location.state?.from;
 
   useEffect(() => {
     fetchMovie();
   }, [movieId]);
+
   const { title, release_date, overview, vote_average, genres, poster_path } =
     movie;
 
   return (
     <div className="movie_container">
-      <button className="back_button" onClick={goBack}>
-        Go back
-      </button>
+      <Link to={backLinkHref}>
+        <button className="back_button">Go back</button>
+      </Link>
       <div className="movie">
         <img src={`${IMG_URL}/${poster_path}`} alt={title} />
         <div className="movie_details">
@@ -55,3 +52,5 @@ export const MovieDetails = () => {
     </div>
   );
 };
+
+export default MovieDetails;

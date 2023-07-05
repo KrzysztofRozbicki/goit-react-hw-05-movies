@@ -21,7 +21,7 @@ h6 {
 }
 
 #root {
-  min-width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: left;
@@ -122,11 +122,14 @@ h6 {
 }
 
 .navigation {
-  width: 100%;
-  padding-bottom: 1rem;
+  width: 60vw;
+  padding-bottom: 2rem;
   margin-bottom: 1rem;
   box-shadow: 0 6px 4px -4px rgba(225, 214, 214, 0.4);
 }
-.navigation button {
-  margin-right: 1rem;
+
+.error {
+  font-size: 4rem;
+  color: darkred;
+  padding: 2rem;
 }

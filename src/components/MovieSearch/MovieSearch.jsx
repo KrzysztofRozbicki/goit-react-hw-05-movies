@@ -1,8 +1,8 @@
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchMovies, createSearchURL } from '../../services/fetchMovies';
 
-export const MovieSearch = () => {
+const MovieSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') ?? '';
   const [movies, setMovies] = useState([]);
@@ -18,6 +18,8 @@ export const MovieSearch = () => {
     setSearchParams({ query: querySearch });
     event.target.reset();
   };
+
+  const location = useLocation();
 
   useEffect(() => {
     if (movieName !== '') {
@@ -35,7 +37,9 @@ export const MovieSearch = () => {
         {movies.map(movie => {
           return (
             <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}> {movie.title}</Link>
+              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+                {movie.title}
+              </Link>
             </li>
           );
         })}
@@ -43,3 +47,5 @@ export const MovieSearch = () => {
     </>
   );
 };
+
+export default MovieSearch;

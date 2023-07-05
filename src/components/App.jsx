@@ -1,32 +1,32 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { TopMenu } from './TopMenu';
 import './App.css';
 
-const TrendingMovies = lazy(() => import('./TrendingMovies'));
-const MovieDetails = lazy(() => import('./MovieDetails'));
-const Cast = lazy(() => import('./Cast'));
-const Reviews = lazy(() => import('./Reviews'));
-const MovieSearch = lazy(() => import('./MovieSearch'));
-
-// import { TrendingMovies } from './TrendingMovies';
-// import { MovieDetails } from './MovieDetails';
-// import { Cast } from './Cast';
-// import { Reviews } from './Reviews';
-// import { MovieSearch } from './MovieSearch';
+const TrendingMovies = lazy(() =>
+  import('./TrendingMovies/TrendingMovies.jsx')
+);
+const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails.jsx'));
+const Cast = lazy(() => import('./Cast/Cast.jsx'));
+const Reviews = lazy(() => import('./Reviews/Reviews.jsx'));
+const MovieSearch = lazy(() => import('./MovieSearch/MovieSearch.jsx'));
+const NotFound = lazy(() => import('./NotFound/NotFound.jsx'));
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<TopMenu />}>
-        <Route index element={<TrendingMovies />} />
-        <Route path="/movies" element={<MovieSearch />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
+    <Suspense>
+      <Routes>
+        <Route path="/" element={<TopMenu />}>
+          <Route index element={<TrendingMovies />} />
+          <Route path="/movies" element={<MovieSearch />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
         </Route>
-      </Route>
-    </Routes>
+      </Routes>
+    </Suspense>
   );
 };
 
