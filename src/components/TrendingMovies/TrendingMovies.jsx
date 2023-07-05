@@ -7,7 +7,6 @@ export const TrendingMovies = () => {
   const fetchData = async () => {
     const fetchedMovies = await fetchMovies(createTrendingURL());
     setTrendingMovies(fetchedMovies);
-    console.log(trendingMovies);
   };
 
   useEffect(() => {

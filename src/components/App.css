@@ -1,8 +1,30 @@
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  margin-block: 1rem;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
+  min-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .logo {
@@ -39,4 +61,72 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.movie_container {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.movie {
+  display: flex;
+  gap: 2rem;
+  align-items: start;
+}
+
+.movie-search {
+  padding-block: 0.5rem;
+  margin-right: 1rem;
+}
+.movie img {
+  max-width: 20vw;
+  object-fit: contain;
+}
+.movie_details {
+  display: flex;
+  flex-direction: column;
+  max-width: 40vw;
+  align-items: start;
+  text-align: left;
+}
+
+.back_button {
+  margin-block: 1rem;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.movie_additional {
+  width: 100%;
+}
+
+.cast-member {
+  border-bottom: 1px solid #aaa;
+  padding-block: 1rem;
+}
+.cast-member img {
+  max-width: 15vw;
+  object-fit: contain;
+}
+
+.review-single {
+  border-bottom: 1px solid #aaa;
+  padding-block: 1rem;
+}
+
+.review-single img {
+  max-width: 15vw;
+  object-fit: contain;
+}
+
+.navigation {
+  width: 100%;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 4px -4px rgba(225, 214, 214, 0.4);
+}
+.navigation button {
+  margin-right: 1rem;
 }
