@@ -1,1 +1,0 @@
-import{r as s,j as t,L as a}from"./index-27d478c7.js";import{f as o,c}from"./fetchMovies-019772f4.js";const l=()=>{const[r,i]=s.useState([]),n=async()=>{const e=await o(c());i(e)};return s.useEffect(()=>{n()},[]),t.jsx("ul",{children:r.map(e=>t.jsx("li",{children:t.jsxs(a,{to:`/movies/${e.id}`,children:[" ",e.title]})},e.id))})};export{l as default};
