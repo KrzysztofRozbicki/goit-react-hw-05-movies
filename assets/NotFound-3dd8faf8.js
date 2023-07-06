@@ -1,1 +1,0 @@
-import{j as t,L as e}from"./index-bf82bc95.js";const s=()=>t.jsxs("div",{children:[t.jsx("h3",{className:"error",children:"I am sorry but it seems that you are lost in the internet space, click below to return to planet of movies"}),t.jsx(e,{to:"/",children:t.jsx("button",{children:"GO HOME!"})})]});export{s as default};
