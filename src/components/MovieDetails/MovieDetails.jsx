@@ -7,13 +7,20 @@ import { convertGenres } from '../../services/convertGenres';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
+  const [backLink, setBackLink] = useState('');
   const fetchMovie = async () => {
     const fetchedMovies = await fetchSingleMovie(movieId);
     setMovie(fetchedMovies);
   };
 
   const location = useLocation();
-  const backLinkHref = location.state?.from;
+
+  useEffect(() => {
+    setBackLink(
+      location.state?.from.pathname + location.state?.from.search || '/'
+    );
+    console.log(backLink);
+  }, []);
 
   useEffect(() => {
     fetchMovie();
@@ -24,7 +31,7 @@ const MovieDetails = () => {
 
   return (
     <div className="movie_container">
-      <Link to={backLinkHref}>
+      <Link to={backLink}>
         <button className="back_button">Go back</button>
       </Link>
       <div className="movie">
@@ -47,8 +54,8 @@ const MovieDetails = () => {
         <Link to={`reviews`}>
           <p> Reviews </p>
         </Link>
+        <Outlet />
       </div>
-      <Outlet />
     </div>
   );
 };

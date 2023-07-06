@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { TopMenu } from './TopMenu';
+import { Loader } from './Loader/Loader.jsx';
 import './App.css';
 
 const TrendingMovies = lazy(() =>
@@ -14,7 +15,7 @@ const NotFound = lazy(() => import('./NotFound/NotFound.jsx'));
 
 const App = () => {
   return (
-    <Suspense>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<TopMenu />}>
           <Route index element={<TrendingMovies />} />
