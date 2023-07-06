@@ -1,17 +1,19 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import { TopMenu } from './TopMenu';
-import { Loader } from './Loader/Loader.jsx';
+import { TopMenu } from './components/TopMenu';
+import { Loader } from './components/Loader/Loader.jsx';
 import './App.css';
 
 const TrendingMovies = lazy(() =>
-  import('./TrendingMovies/TrendingMovies.jsx')
+  import('./pages/TrendingMovies/TrendingMovies.jsx')
 );
-const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails.jsx'));
-const Cast = lazy(() => import('./Cast/Cast.jsx'));
-const Reviews = lazy(() => import('./Reviews/Reviews.jsx'));
-const MovieSearch = lazy(() => import('./MovieSearch/MovieSearch.jsx'));
-const NotFound = lazy(() => import('./NotFound/NotFound.jsx'));
+const MovieDetails = lazy(() =>
+  import('./pages/MovieDetails/MovieDetails.jsx')
+);
+const Cast = lazy(() => import('./components/Cast/Cast.jsx'));
+const Reviews = lazy(() => import('./components/Reviews/Reviews.jsx'));
+const MovieSearch = lazy(() => import('./pages/MovieSearch/MovieSearch.jsx'));
+const NotFound = lazy(() => import('./pages/NotFound/NotFound.jsx'));
 
 const App = () => {
   return (
