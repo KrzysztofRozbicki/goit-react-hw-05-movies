@@ -8,6 +8,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const [backLink, setBackLink] = useState('');
+
   const fetchMovie = async () => {
     const fetchedMovies = await fetchSingleMovie(movieId);
     setMovie(fetchedMovies);
@@ -38,7 +39,7 @@ const MovieDetails = () => {
         <img src={`${IMG_URL}/${poster_path}`} alt={title} />
         <div className="movie_details">
           <h2>
-            {title} ({release_date})
+            {title} {release_date ? `(${release_date.slice(0, 4)})` : ''}
           </h2>
           <p>User score: {vote_average}</p>
           <h3>Overview</h3>
